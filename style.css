@@ -1,0 +1,145 @@
+/*using border box as design*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*creating the outside body and using flex to place the box in the middle of the page*/
+body {
+  color: black;/*black colour of tic tac toe text*/
+  display: flex;
+  font-family: sans-serif;
+  justify-content: center; /*for horizontal allignment*/
+}
+
+/*creating the outside body and using #14bdac as the colour of outside box*/
+.container {
+  background: #14BDAC;
+  margin: 50px;
+  padding: 50px;
+  border-radius: 15px;
+}
+
+/*placing title in center of box*/
+.title {
+  font-family: inherit;
+  text-align: center;
+  font-size: 40px;
+}
+
+/*displaying status of the game*/
+.status-action {
+  display: flex;
+  margin-top: 25px;
+  font-size: 35px;
+  justify-content: space-around;/*to sepearte the status and reset using spaces*/
+  height: 30px;
+}
+
+.status span{
+  color: white
+}
+/*stlizing the reset button*/
+.reset {
+  cursor: pointer;
+}
+
+/*changing the colour when we hover over the word*/
+.reset:hover {
+  color: white;
+}
+
+/*creating the box (grid box inside the main body)*/
+/* | |
+ -------
+   | |
+ -------
+   | | */
+.game-grid {
+  background: #0DA192;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /*no of columns, 1fr is used to equally divide the columns with equal spaces*/
+  grid-template-rows: repeat(3, 1fr); /* no of rows, 1fr is used to equally divide the rows with equal spaces*/
+  grid-gap: 15px;
+  margin-top: 50px;
+}
+
+/* shaping the game cells ad placing the marks in the grids*/
+.game-cell {
+  background: white; /*colour of grids(using same colour of box)*/
+  display: flex;
+  justify-content: center;/*for horizontal allignment*/
+  align-items: center; /*for vertical allignment*/
+  cursor: pointer; /*using cursor as the pointer
+  */
+  height: 200px; /*height of each grid*/
+  width: 200px; /* width od each grid*/
+}
+
+/*using 'x' and 'o' as marks and placing the marks inside the grid*/
+.x,
+.o {
+  cursor: default;
+}
+
+/*after placing "x" mark in grid dispaly it */
+.x::after {
+  content: '×';
+  color: red;
+  font-size: 180px;
+}
+
+/*after placing "o" mark in grid and dispalying it with #F2EBD3 colour*/
+.o::after {
+  content: '○';
+  color: blue;
+  font-size: 190px;
+}
+
+/*displaying the win message using #BD022F colour*/
+.won::after {
+  color: black;
+}
+
+/*for less than 1024px screen*/
+@media only screen and (max-width: 1024px) {
+  .game-grid {
+    margin-top: 25px;
+    grid-gap: 10px;
+  }
+
+  .game-cell {
+    height: 150px;
+    width: 150px;
+  }
+
+  .x::after {
+    font-size: 150px;
+  }
+
+  .o::after {
+    font-size: 175px;
+  }
+}
+
+/*for less than 540px screen*/
+@media only screen and (max-width: 540px) {
+  .container {
+    margin: 25px;
+    padding: 25px;
+  }
+
+  .game-cell {
+    height: 100px;
+    width: 100px;
+  }
+
+  .x::after {
+    font-size: 100px;
+  }
+
+  .o::after {
+    font-size: 100px;
+  }
+}
